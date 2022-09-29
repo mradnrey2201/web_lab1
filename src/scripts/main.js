@@ -168,7 +168,7 @@ form.addEventListener('submit', (e) => {
   let newX = countXValue(x)
   setDot(newX, y)
 
-  fetch(`http://localhost:5000/api/hit?x=${x}&y=${+yInput.value}&r=${rValue}`)
+  fetch(`http://localhost:5000/api/hit?x=${x}&y=${String(yInput.value)}&r=${rValue}`)
     .then((res) => res.text())
     .then((data) => {
       sessionStorage.setItem(

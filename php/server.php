@@ -14,12 +14,29 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             http_response_code(201);
 
             $xValue = floatval($_GET['x']);
-            $yValue = floatval($_GET['y']);
+            $yValue = strval($_GET['y']);
+            $pieces = explode(".", $yValue);
+            //echo $pieces[0];
+            //echo $pieces[1];
+            //if($pieces[1]>0){
+              //  echo "sssssssssssss";
+            //}
+            
             $rValue = floatval($_GET['r']);
             $hit = hit($xValue,$yValue,$rValue);
-
-            $hitted = $hit ? 'hitted' : 'miss';
-            $currentTime = gmDate("H:i:s",time() + 3600*(3+date("I")));
+            if($xValue>3 || $xValue<-3){
+                echo "Значение X больше допустимого";
+                
+            }elseif(doubleval($yValue)>4 ||doubleval($yValue<-4) || ($pieces[0]==-4 && $pieces[1]>0)|| ($pieces[0]==4 && $pieces[1]>0) ){
+                //echo $yValue;
+                echo "Значение У больше допустимого";
+            }
+            elseif($rValue>5 || $rValue<1){
+                echo "Значение r больше допустимого";
+            }else{
+                $yValue=doubleval($yValue);
+                 $hitted = $hit ? 'hitted' : 'miss'; 
+                 $currentTime = gmDate("H:i:s",time() + 3600*(3+date("I")));
                 $execution_time = ceil((microtime(true) - $script_start) * 100000000) /100;
                 echo "
                 <tr style='text-align: center;'>
@@ -31,6 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     <td>$execution_time ms</td>
                 </tr>";
                 exit(201);
+            }
+           
+           
         }else{
             http_response_code(400);
             echo 'Bad request';

@@ -1,0 +1,6 @@
+запуск проги
+npm i
+npm run dev
+
+запуск сервера
+npm run server

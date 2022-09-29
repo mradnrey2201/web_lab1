@@ -1,0 +1,114 @@
+@import './variables';
+@import './mixins';
+@import './graph';
+@import './form';
+* {
+  padding: 0;
+  margin: 0;
+  font-family: serif;
+}
+
+input {
+  outline: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dot {
+  fill: transparent;
+
+  &.dot-active {
+    fill: red;
+  }
+}
+
+.header {
+  padding: 20px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-size: 20px;
+  background: teal;
+  text-align: center;
+  &__text {
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  color: red;
+  border: 1px solid red;
+  position: fixed;
+  left: 0;
+  top: 62px;
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 5px;
+    cursor: pointer;
+  }
+  &.disabled {
+    display: none;
+    // opacity: 0;
+  }
+}
+
+//================================================================
+.history {
+  overflow-y: scroll;
+  height: 505px;
+  border: 1px solid teal;
+  box-sizing: content-box;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.history thead th {
+  position: sticky;
+  top: 0;
+}
+.history table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.history th,
+.history td {
+  padding: 10px;
+}
+.history th {
+  background: teal;
+  color: #ffffff;
+}
+
+.line {
+  stroke: transparent;
+  &.active {
+    stroke: rgb(255, 0, 0);
+    stroke-width: 1px;
+  }
+
+  &.pointer {
+    stroke: black;
+    stroke-width: 1px;
+  }
+}
+
+.inactive {
+  display: none;
+}
+
+#y-line {
+  stroke: transparent;
+
+  &.active {
+    stroke: rgb(255, 0, 0);
+  }
+}

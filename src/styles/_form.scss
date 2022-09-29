@@ -1,0 +1,72 @@
+.form {
+  &__title {
+    margin-right: 20px;
+    white-space: nowrap;
+  }
+
+  &__btns {
+    margin-top: 20px;
+
+    #submit {
+      background: teal;
+      padding: 5px 20px;
+      border: 1px solid teal;
+      color: #ffffff;
+      border-radius: 16px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background: transparent;
+        color: teal;
+      }
+    }
+  }
+}
+
+.X-panel {
+  &__label {
+    margin-right: 10px;
+    input {
+      box-sizing: border-box;
+      width: 30px;
+      padding: 5px;
+      background: teal;
+      color: #ffffff;
+      outline: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.3s;
+
+      &:hover,
+      &.active {
+        background: #ffffff;
+        border-color: teal;
+        color: teal;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.Y-panel {
+  margin: 20px 0;
+}
+
+.R-panel {
+  &__label {
+    margin-right: 10px;
+  }
+}
+
+#y-data {
+  width: 100%;
+  padding: 5px;
+  // outline-color: teal;
+  &:focus {
+    border: 2px solid teal;
+    outline-color: teal;
+  }
+}

@@ -1,0 +1,49 @@
+@import './variables';
+@import './mixins';
+
+#graph-plate {
+  @include align-center;
+
+  position: relative;
+  padding: 1em;
+}
+
+#graph-svg {
+  height: 20em;
+  cursor: crosshair;
+
+  .graph-shape {
+    fill: $fill-color;
+    fill-opacity: 85%;
+  }
+
+  .graph-axle-text,
+  .graph-axle-arrow,
+  .graph-label {
+    fill: $stroke-color;
+  }
+
+  .graph-axle-line,
+  .graph-axle-arrow,
+  .graph-point {
+    stroke: $stroke-color;
+  }
+
+  .dotted-line-x,
+  .dotted-line-y,
+  .dotted-raw-x,
+  .dotted-raw-y {
+    stroke: $stroke-color;
+    stroke-dasharray: 5;
+  }
+
+  .dotted-raw-x,
+  .dotted-raw-y {
+    stroke-width: 2px;
+    stroke: $dotted-line-color;
+  }
+
+  .crossing {
+    fill: $dotted-line-color;
+  }
+}
